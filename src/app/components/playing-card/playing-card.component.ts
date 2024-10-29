@@ -1,14 +1,20 @@
-import { Monster } from './../../models/monster.model';
-import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
+import { Monster } from '../../models/monster.model';
+import { MonsterTypeProperties } from '../../utils/monster.utils';
 
 @Component({
   selector: 'app-playing-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './playing-card.component.html',
   styleUrl: './playing-card.component.css',
 })
 export class PlayingCardComponent {
-  @Input() monster: Monster = new Monster();
+  monster = input<Monster>(new Monster());
+  monsterTypeIcon = computed(() => {
+    return MonsterTypeProperties[this.monster().type].imageUrl;
+  });
+  backgroundColor = computed(() => {
+    return MonsterTypeProperties[this.monster().type].color;
+  });
 }
