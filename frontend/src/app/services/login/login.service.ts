@@ -11,7 +11,7 @@ export interface LoginCredentials {
 @Injectable({ providedIn: 'root' })
 export class LoginService {
   private http = inject(HttpClient);
-  private BASE_URL = 'http://localhost:8000';
+  private BASE_URL = 'http://localhost:8080';
   user = signal<User | undefined | null>(undefined);
 
   login(credentials: LoginCredentials): Observable<User | null | undefined> {
@@ -28,7 +28,7 @@ export class LoginService {
   }
 
   getUser(): Observable<User | null | undefined> {
-    return this.http.get('http://localhost:8000/sessions/me/').pipe(
+    return this.http.get('http://localhost:8080/sessions/me/').pipe(
       tap((result: any) => {
         const user = Object.assign(new User(), result);
         this.user.set(user);
@@ -40,7 +40,7 @@ export class LoginService {
   }
 
   logout() {
-    return this.http.get('http://localhost:8000/sessions/logout/').pipe(
+    return this.http.get('http://localhost:8080/sessions/logout/').pipe(
       tap((result: any) => {
         localStorage.removeItem('token');
         this.user.set(null);

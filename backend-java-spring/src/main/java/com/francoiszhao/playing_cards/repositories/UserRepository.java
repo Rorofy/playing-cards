@@ -1,8 +1,8 @@
-package com.francoiszhao.playing_cards.repository;
+package com.francoiszhao.playing_cards.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.francoiszhao.playing_cards.model.User;
+import com.francoiszhao.playing_cards.models.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

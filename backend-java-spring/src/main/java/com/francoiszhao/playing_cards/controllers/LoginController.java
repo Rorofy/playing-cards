@@ -1,15 +1,17 @@
-package com.francoiszhao.playing_cards.controller;
+package com.francoiszhao.playing_cards.controllers;
 
-import com.francoiszhao.playing_cards.service.LoginService;
+import com.francoiszhao.playing_cards.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@RequestMapping("/authenticate")
 @RestController
 public class LoginController {
 

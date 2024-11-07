@@ -8,7 +8,7 @@ import { Monster } from '../../models/monster.model';
   providedIn: 'root',
 })
 export class MonsterService {
-  private readonly BASE_URL = 'http://localhost:8000/monsters/';
+  private readonly BASE_URL = 'http://localhost:8080/monsters/';
   private readonly http = inject(HttpClient);
 
   getAll(): Observable<Monster[]> {
